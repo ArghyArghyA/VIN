@@ -89,7 +89,7 @@ public class VIN {
 		return (String) vinDigitValues.keySet().toArray()[new Random().nextInt(vinDigitValues.keySet().size())];
 	}
 
-	public static String getCheckSumChar(String vin) {
+	private static String getCheckSumChar(String vin) {
 		int checkSumTotal = 0;
 
 		if (vin.length()!= 16)
