@@ -60,7 +60,8 @@ public class Test {
 		// TODO Auto-generated method stub
 		for (int i = 0; i<1000; i++)
 		{
-//			String V = VIN.getRandomVin();
+			String V = VIN.getRandomVin();
+			System.out.println(V);
 //			String V = "1FACP45EXLF192944";
 //			String X = V.substring(8, 9);
 //			String Y = getCheckSumChar(V);
