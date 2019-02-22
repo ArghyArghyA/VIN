@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
-
 import javafx.util.Pair;
 
 /**
@@ -14,7 +13,6 @@ import javafx.util.Pair;
  *
  */
 public class VIN {
-	private static HashMap<String, String> prefixes = null;
 	private static int[] vinDigitPositionMultiplier = { 8, 7, 6, 5, 4, 3, 2, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
 
 	private static HashMap<String, Integer> vinDigitValues = new HashMap<String, Integer>();
