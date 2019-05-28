@@ -6,7 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
-import javafx.util.Pair;
+
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * @author Alpha Romeo
@@ -80,7 +81,7 @@ public class VIN {
 			return null;
 		}
 
-		return new Pair<String, String>(key, value);
+		return Pair.of(key, value);
 	}
 
 	private static String getRandomVinChar() {

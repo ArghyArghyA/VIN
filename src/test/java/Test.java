@@ -1,6 +1,8 @@
+import java.time.Duration;
+import java.time.Instant;
 import java.util.HashMap;
-
-import vin.VIN;
+import vin.VIN2;
+import vin.VIN2.FROM;
 
 public class Test {
 	private static int[] vinDigitPositionMultiplier = { 8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -41,27 +43,28 @@ public class Test {
 		vinDigitValues.put("9", 9);
 		vinDigitValues.put("0", 0);
 	}
-	
+
 	public static String getCheckSumChar(String vin) {
 		int checkSumTotal = 0;
 
-		if (vin.length()!= 17)
+		if (vin.length() != 17)
 			return null;
 		for (int i = 0; i < vin.length(); i++) {
 			if (vinDigitValues.get(Character.toString(vin.charAt(i))) != null)
-				checkSumTotal = checkSumTotal + vinDigitValues.get(Character.toString(vin.charAt(i))) * vinDigitPositionMultiplier[i];
+				checkSumTotal = checkSumTotal
+						+ vinDigitValues.get(Character.toString(vin.charAt(i))) * vinDigitPositionMultiplier[i];
 			else
 				return null;
 		}
-		return (checkSumTotal%11==10)? "X":Integer.toString(checkSumTotal%11);
+		return (checkSumTotal % 11 == 10) ? "X" : Integer.toString(checkSumTotal % 11);
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		Instant start = Instant.now();
 		// TODO Auto-generated method stub
-		for (int i = 0; i<1000; i++)
-		{
-			String V = VIN.getRandomVin();
-			System.out.println(V);
+		for (int i = 0; i < 100; i++) {
+			String V = VIN2.getRandomVin(FROM.VINGENERATOR);
+//			System.out.println(V);
 //			String V = "1FACP45EXLF192944";
 //			String X = V.substring(8, 9);
 //			String Y = getCheckSumChar(V);
@@ -69,6 +72,7 @@ public class Test {
 		}
 //		System.out.println(VIN.getCheckSumChar("1GCJK34GDLX5VF40"));
 //		System.out.println(VIN.getCheckSumChar("1FACP45EXLF192944"));
+		System.out.println(Duration.between(start, Instant.now()).toMillis());
 
 	}
 
