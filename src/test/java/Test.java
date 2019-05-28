@@ -1,8 +1,9 @@
 import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
-import vin.VIN2;
-import vin.VIN2.FROM;
+
+import vin.VIN;
+import vin.VIN.FROM;
 
 public class Test {
 	private static int[] vinDigitPositionMultiplier = { 8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -63,7 +64,7 @@ public class Test {
 		Instant start = Instant.now();
 		// TODO Auto-generated method stub
 		for (int i = 0; i < 100; i++) {
-			String V = VIN2.getRandomVin(FROM.VINGENERATOR);
+			String V = VIN.getRandomVin();
 //			System.out.println(V);
 //			String V = "1FACP45EXLF192944";
 //			String X = V.substring(8, 9);
